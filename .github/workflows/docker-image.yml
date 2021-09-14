@@ -21,4 +21,5 @@ jobs:
         name: pon0mar/homework3
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        tags: "${{ env.STATE_RELEASE_VERSION }}"
+        tags:
+          v1.* 
