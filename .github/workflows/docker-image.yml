@@ -14,6 +14,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Generate build number
+      id: buildnumber
+      uses: einaregilsson/build-number@v3 
+      with:
+        token: ${{secrets.TOKEN}} 
     - name: Publish Docker
       uses: elgohr/Publish-Docker-Github-Action@3.04
     
@@ -21,4 +26,4 @@ jobs:
         name: pon0mar/homework3
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        tags: $(docker images | awk '($1 == "pon0mar/homework3") {print $2 += .01; exit}')
+        tags: ${{ steps.buildnumber.outputs.build_number }}
