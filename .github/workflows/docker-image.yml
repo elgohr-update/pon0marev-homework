@@ -20,7 +20,7 @@ jobs:
       with:
         token: ${{secrets.TOKEN}} 
     - name: Publish Docker
-      uses: elgohr/Publish-Docker-Github-Action@3.04
+      uses: elgohr/Publish-Docker-Github-Action@v5
     
       with:
         name: pon0mar/homework3
